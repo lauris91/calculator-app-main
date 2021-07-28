@@ -1,0 +1,133 @@
+@import "variables";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: 700;
+  }
+
+  .theme-switcher {
+    width: 100%;
+    -webkit-appearance: none;
+    background: var(--main-bg);
+    transition: createTransition("background");
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+      height: 13px;
+      cursor: pointer;
+      border-radius: 3rem;
+      background-color: var(--toggle-bg);
+      width: 50%;
+      padding: 0 3px;
+    }
+
+    &::-webkit-slider-thumb,
+    &::-webkit-slider-thumb:active {
+      width: 10px;
+      height: 10px;
+      margin-top: 1px;
+      -webkit-appearance: none;
+      background-color: var(--result-key);
+      border-radius: 50%;
+    }
+  }
+
+  .transition {
+    @apply transition-colors duration-300 ease-in;
+  }
+
+  .key {
+    @apply flex justify-center items-center rounded-md p-1 transition text-base font-press-start cursor-pointer;
+  }
+}
+
+.theme-one {
+  --main-bg: #{$main-background-1};
+  --toggle-bg: #{$toggle-background-1};
+  --header-text: white;
+  --screen-bg: #{$screen-background-1};
+
+  --result-key: #{$result-key-1};
+  --reset-key: #{$reset-key-bg-1};
+  --key-bg: #{$key-bg-1};
+  --key-bg-shadow: #{$key-bg-shadow-1};
+
+  --key-text-main: #{$dark-text-1};
+  --key-text-result: white;
+
+  .main-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($key-bg-shadow-1, 0.2);
+  }
+
+  .result-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($result-key-bg-shadow-1, 0.2);
+  }
+
+  .reset-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($reset-key-bg-shadow-1, 0.2);
+  }
+}
+
+.theme-two {
+  --main-bg: #{$main-background-2};
+  --toggle-bg: #{$toggle-background-2};
+  --header-text: #{$dark-text-2};
+  --screen-bg: #{$screen-background-2};
+
+  --result-key: #{$result-key-2};
+  --reset-key: #{$reset-key-bg-2};
+  --key-bg: #{$key-bg-2};
+  --key-bg-shadow: #{$key-bg-shadow-2};
+
+  --key-text-main: #{$dark-text-2};
+  --key-text-result: white;
+
+  .main-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($key-bg-shadow-2, 0.2);
+  }
+
+  .result-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($result-key-bg-shadow-2, 0.2);
+  }
+
+  .reset-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($reset-key-bg-shadow-2, 0.2);
+  }
+}
+
+.theme-three {
+  --main-bg: #{$main-background-3};
+  --toggle-bg: #{$toggle-background-3};
+  --header-text: #{$light-yellow};
+  --screen-bg: #{$screen-background-3};
+
+  --result-key: #{$result-key-3};
+  --reset-key: #{$reset-key-bg-3};
+  --key-bg: #{$key-bg-3};
+  --key-bg-shadow: #{$key-bg-shadow-3};
+
+  --key-text-main: #{$light-yellow};
+  --key-text-result: #{$key-bg-3};
+
+  .main-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($key-bg-shadow-3, 0.2);
+  }
+
+  .result-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($result-key-bg-shadow-3, 0.2);
+  }
+
+  .reset-key-shadow {
+    box-shadow: inset 0px -6px 6px 0px rgba($reset-key-bg-shadow-3, 0.2);
+  }
+}

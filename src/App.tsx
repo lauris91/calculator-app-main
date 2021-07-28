@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useCallback } from "react";
+import { Header, DisplayBox, Keypad } from "./components";
 
 function App() {
+  const [theme, setTheme] = useState(1);
+
+  const updateTheme = (num: number) => setTheme(num);
+
+  const renderThemeClassname = useCallback(() => {
+    let className = "theme-";
+    switch (theme) {
+      case 1:
+        className += "one";
+        break;
+      case 2:
+        className += "two";
+        break;
+      default:
+        className += "three";
+    }
+
+    return className;
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={renderThemeClassname()}>
+      <div className="flex justify-center items-center h-screen bg-main transition">
+        <div className="flex w-2/6 flex-col">
+          <Header updateTheme={updateTheme} theme={theme} />
+          <DisplayBox />
+          <Keypad />
+        </div>
+      </div>
     </div>
   );
 }
